@@ -4,7 +4,7 @@
 #include "./brightener.h"
 
 int main() {
-    //To be more user friendly, could also request input size of the image from the user
+    // To be more user friendly, could also request input size of the image from the user
     unsigned int image_column_size = 512;
     unsigned int image_row_size = 512;
 
