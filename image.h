@@ -3,6 +3,9 @@
 #include <iostream>
 #include <memory>
 
+const unsigned int MAX_IMAGE_COLUMN_SIZE = 1024;
+const unsigned int MAX_IMAGE_ROW_SIZE = 1024;
+
 class Image {
  public:
     Image(uint16_t rows, uint16_t columns): m_rows(rows), m_columns(columns) {
@@ -18,10 +21,9 @@ class Image {
         pixels[x * m_columns + y] = value;
     }
     bool ValidateImage() {
-        if (m_columns <= 1024 && m_rows <= 1024) {
+        if (m_columns <= MAX_IMAGE_COLUMN_SIZE && m_rows <= MAX_IMAGE_ROW_SIZE) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }

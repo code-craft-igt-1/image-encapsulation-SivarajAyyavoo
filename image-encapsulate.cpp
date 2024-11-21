@@ -4,13 +4,17 @@
 #include "./brightener.h"
 
 int main() {
-    auto image = std::make_shared<Image>(512, 512);
-    std::cout << "Brightening a 512 x 512 image\n";
+    //To be more user friendly, could also request input size of the image from the user
+    unsigned int image_column_size = 512;
+    unsigned int image_row_size = 512;
 
-    // shared ptr allowed us to have multiple pointers safely share ownership of an object
-    ImageBrightener brightener(image);
+    auto image = std::make_shared<Image>(image_column_size, image_row_size);
+    std::cout << "Brightening a " << image_column_size << " x " << image_row_size << " image\n";
 
     if (image->ValidateImage()) {
+        // shared ptr allowed us to have multiple pointers safely share ownership of an object
+        ImageBrightener brightener(image);
+
         int attenuatedCount = brightener.BrightenWholeImage();
         std::cout << "Attenuated " << attenuatedCount << " pixels\n";
 
