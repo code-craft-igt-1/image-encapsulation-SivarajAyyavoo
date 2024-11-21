@@ -1,16 +1,8 @@
 #include "./brightener.h"
 #include <utility>
 
-ImageBrightener::ImageBrightener(std::unique_ptr<Image> inputImage)
-    : m_inputImage(std::move(inputImage)) {
-}
-
-bool ImageBrightener::ValidateImage() {
-    if (m_inputImage->m_columns <= 1024 && m_inputImage->m_rows <= 1024) {
-        return true;
-    } else {
-        return false;
-    }
+ImageBrightener::ImageBrightener(std::shared_ptr<Image> inputImage)
+    : m_inputImage(inputImage) {
 }
 
 int ImageBrightener::BrightenWholeImage() {
