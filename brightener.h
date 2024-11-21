@@ -2,11 +2,13 @@
 #include <memory>
 #include "./image.h"
 
+const unsigned int MAX_BRIGHTNESS_VAL = 255;
+const unsigned int GRAYSCALE_VAL_TO_BRIGHTEN = 25;
+
 class ImageBrightener {
  private:
-    std::unique_ptr<Image> m_inputImage;
+    std::shared_ptr<Image> m_inputImage;
  public:
-    explicit ImageBrightener(std::unique_ptr<Image> inputImage);
-    bool ValidateImage();
+    explicit ImageBrightener(std::shared_ptr<Image> inputImage);
     int BrightenWholeImage();
 };
